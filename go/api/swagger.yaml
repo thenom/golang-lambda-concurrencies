@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: Lambds concurrencies test
+  description: To test how multiple rquests to a golang lambda affects concurrencies.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: testendpoint
+paths:
+  /request:
+    summary: The main request endpoint
+    get:
+      summary: Main get method
+      parameters:
+      - name: responseDelay
+        in: header
+        description: How long in miliseconds to wait until responding
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                defaultReponse:
+                  value: "{\n    \"code\": \"200\",\n    \"string\": \"OK\"\n}"
+components: {}
