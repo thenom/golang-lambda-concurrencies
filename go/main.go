@@ -19,7 +19,7 @@ import (
 	//
 	//    sw "github.com/myname/myrepo/go"
 	//
-	sw "./go"
+	sw "github.com/thenom/golang-lambda-concurrencies/go"
 )
 
 func main() {
